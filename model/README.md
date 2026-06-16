@@ -39,5 +39,5 @@ python3 model/extract_pairs.py   # -> correction-taxonomy.v0.json + ~/brain-corp
 ```
 
 ## Known gaps
-- tl-scraper + robeul-server transcripts not yet pulled (Tailscale node down / SSH key missing). Re-rsync when reachable and re-run.
+- tl-scraper + robeul-server are decommissioned (2026-06-16) — their transcripts will never be pulled; the corpus is complete for the live fleet.
 - The taxonomy is high-precision (95 turns) over high-recall: it favors real corrections over coverage. Session-level counts in `behavioral-model.v0.json` give the wider view.

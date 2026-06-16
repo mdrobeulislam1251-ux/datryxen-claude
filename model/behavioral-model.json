@@ -1,7 +1,7 @@
 {
   "schema": "robeul-behavioral-model/v1",
   "purpose": "Typed, evidence-backed model of how Robeul actually works with Claude. Supersedes the prose docs (ROBEUL-PROFILE.md, WINS-AND-FAILS.md). Every parameter carries evidence: a measured count from the corpus and/or a real (redacted) quote. Authored from a deterministic mine — no abstract guessing.",
-  "method": "Deterministic mine (model/mine_corpus.py + model/extract_pairs.py) over 1359 Robeul-driven Claude Code sessions + 490 vault chats across rentamac/tl-vps/lgj-vm. Sub-agent (Claude-to-Claude) sessions and compaction/hook noise were excluded. 95 high-precision real corrections were extracted and bucketed. Secrets scrubbed.",
+  "method": "Deterministic mine (model/mine_corpus.py + model/extract_pairs.py) over 1359 Robeul-driven Claude Code sessions + 490 vault chats across rentamac/tl-vps/lgj-vm. Sub-agent (Claude-to-Claude) sessions and compaction/hook noise were excluded. 95 high-precision real corrections were extracted and bucketed. Secrets scrubbed. Corpus is complete for the live fleet (tl-scraper + robeul-server decommissioned 2026-06-16).",
   "generated": "2026-06-16",
   "corpus": {
     "robeul_sessions": 1359,
