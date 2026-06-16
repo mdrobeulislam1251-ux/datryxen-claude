@@ -1,0 +1,6 @@
+.env
+.env.*
+.mcp.json
+node_modules/
+*.log
+.DS_Store
