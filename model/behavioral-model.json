@@ -1,0 +1,152 @@
+{
+  "schema": "robeul-behavioral-model/v1",
+  "purpose": "Typed, evidence-backed model of how Robeul actually works with Claude. Supersedes the prose docs (ROBEUL-PROFILE.md, WINS-AND-FAILS.md). Every parameter carries evidence: a measured count from the corpus and/or a real (redacted) quote. Authored from a deterministic mine — no abstract guessing.",
+  "method": "Deterministic mine (model/mine_corpus.py + model/extract_pairs.py) over 1359 Robeul-driven Claude Code sessions + 490 vault chats across rentamac/tl-vps/lgj-vm. Sub-agent (Claude-to-Claude) sessions and compaction/hook noise were excluded. 95 high-precision real corrections were extracted and bucketed. Secrets scrubbed.",
+  "generated": "2026-06-16",
+  "corpus": {
+    "robeul_sessions": 1359,
+    "vault_chats": 490,
+    "subagent_sessions_excluded": 92,
+    "by_host": {"rentamac": 968, "tl-vps": 222, "lgj-vm": 169},
+    "total_tool_calls": 42869,
+    "avg_user_turns_per_session": 2.4,
+    "avg_tool_calls_per_session": 31.5
+  },
+
+  "interaction_shape": {
+    "claim": "Short directive in, long autonomous run expected.",
+    "evidence": "avg 2.4 user turns vs 31.5 tool calls per session; heavy use of ScheduleWakeup (222), Workflow (60), Agent (271), TaskCreate/Update (1115).",
+    "implication": "He hands a terse goal and expects the agent to run far without check-ins. Pausing to ask, or stopping early, reads as failure. But running far in the WRONG direction is the worst outcome — verify the target first, then go long."
+  },
+
+  "voice_decode": {
+    "note": "How his words map to state. Quotes are real, redacted.",
+    "terse_lowercase_typo_directive": {
+      "means": "Normal operating mode. He typed fast; intent over grammar. Execute, don't ask him to clarify spelling.",
+      "example": "\"I asked apollo.io\""
+    },
+    "english_profanity": {
+      "means": "Trust slipping. You drifted, wasted time, or claimed done falsely. Stop, admit, fix the one thing.",
+      "example": "\"what the fuck man!!! stop wasting my times\""
+    },
+    "romanized_bengali_profanity": {
+      "means": "PEAK anger — trust broken (the rarest, sharpest signal: native-tongue switch).",
+      "example": "\"eii [REDACTED] li bal kortesos vodar bal somossa ki\", \"memory takhte paroah naa\" (= you don't even keep this domain's memory)",
+      "protocol": "Kill the running agent/process, admit the specific mistake in one line, revert out-of-scope changes, execute the single minimal real action. Do NOT explain or defend."
+    },
+    "time_framing": {
+      "means": "Time is his primary failure metric. 'How many hours', 'wasting my time' = you cost him hours with nothing shipped.",
+      "example": "\"You're waste my how many Hours?\", \"7 hours [task]\""
+    },
+    "discipline_demand": {
+      "means": "He is invoking the rules explicitly; zero tolerance left.",
+      "example": "\"be very disciplined or get lost\", \"don't rolling me\" (= stop redirecting/bouncing me, just do it)"
+    }
+  },
+
+  "failure_modes_ranked": [
+    {
+      "mode": "false_done",
+      "rank": 1,
+      "evidence": {"sessions_with_proxy": 472, "pct_of_sessions": 34.7, "asst_done_claims_total": 3039, "strong_correction_turns": 2},
+      "real_quote": "\"Nope the wrong built claudes fake execution\"; \"you were gone ahead and back said done\"",
+      "rule": "Never say done/working until you ran the real path THIS session and can quote literal proof inline (row counts, actual output — not HTTP 200). Not run -> 'not verified'. Blocked -> 'NOT DONE — blocked by X'.",
+      "frequency_caveat": "Proxy = assistant claimed done AND a correction/failure followed. The strongest, most repeated complaint across the corpus."
+    },
+    {
+      "mode": "overstepping_doing_unrequested",
+      "rank": 2,
+      "evidence": {"overbuild_pushback_sessions": 585, "overstep_correction_turns": 4, "over_engineering_turns": 5},
+      "real_quote": "\"we don't done yet please stop your over doing over stepping behaviour\"; \"who gave you that permission to use new source for dedupe\"",
+      "rule": "Build ONLY the named noun + path. Touch only the files/paths he named. On 'remove/simplify' do the single smallest step and DELETE scope — never add a layer, never a menu. Anything unnamed = ask in one line first."
+    },
+    {
+      "mode": "wasting_time",
+      "rank": 3,
+      "evidence": {"correction_turns": 13, "is_dominant_anger_trigger": true},
+      "real_quote": "\"stop wasting my times\"; \"are you able to productional or keep continueing my time wasting?\"",
+      "rule": "Optimize for his hours, not yours. Pin ONE workspace, take the smallest correct action, finish + deploy. Don't explore, narrate, or re-derive what's already established."
+    },
+    {
+      "mode": "ignored_instruction",
+      "rank": 4,
+      "evidence": {"correction_turns": 20},
+      "real_quote": "\"wtf you're doing it again with the wrong emails i said sheets listes domain isn't valid\"; \"Flagging your unexecutions I asked you to check and compare with apollo\"",
+      "rule": "Follow HIS documented pattern verbatim. If he said apollo.io, do apollo.io. Re-read his exact words before acting; repeating a corrected mistake is the trust-killer."
+    },
+    {
+      "mode": "stale_or_wrong_memory",
+      "rank": 5,
+      "evidence": {"correction_turns": 9},
+      "real_quote": "\"stop old memory review i accessed it try real\"; \"fuck your brain\" (got same wrong result twice)",
+      "rule": "Memory/brain is point-in-time and often stale. Load LIVE state (config/logs/DB/curl) before answering or coding. The moment you're about to assume a path/fact/capability, read it instead. Re-confirm the infra map; it changes under you."
+    },
+    {
+      "mode": "wrong_target",
+      "rank": 6,
+      "evidence": {"correction_turns": 7},
+      "real_quote": "\"wait don't move wrong path check the dedicated sandbox running inside tl vps for outboundrix\"; \"which sheet we used before?\"",
+      "rule": "Confirm WHICH app/repo/server/sheet/DB before touching it. One workspace per task, pinned. Verify the target exists and is the right one — wrong-target work is wasted hours."
+    },
+    {
+      "mode": "options_menu",
+      "rank": 7,
+      "evidence": {"menu_dump_sessions": 504, "menu_instances": 2632, "correction_turns": 2},
+      "real_quote": "\"What do you think by this kind of options every time? The fucking shit.\"; \"stop bargaining with me\"",
+      "rule": "No A/B/C menus, no capacity-math, no 'want me to also'. Pick the best path and execute. Needing input = ONE line, the ask IS the message. Never argue/defend a choice — act."
+    },
+    {
+      "mode": "guessing_assuming",
+      "rank": 8,
+      "evidence": {"correction_turns": 2, "tied_to": "stale_or_wrong_memory + false_done"},
+      "real_quote": "\"the most hardest part is youre always working with guess and always doing what you want\"; \"stop your guessing behavior Make sure proper brain\"",
+      "rule": "Don't guess capabilities, paths, or results. Check first. If you can't verify, say so explicitly rather than asserting."
+    }
+  ],
+
+  "domain_ownership": {
+    "note": "Where his work actually goes, by session volume — drives which sub-agents the core orchestrator needs first.",
+    "outboundrix": {"sessions": 586, "note": "Outboundrix-Dev (453) + web monorepo (133); cold-email + Apollo-prospecting SaaS. By far the heaviest. Benchmark = Apollo.io + Instantly.ai.", "agent": "outboundrix-dev"},
+    "trustedleads": {"sessions": 125, "note": "Trusted-Leads Admin (96) + dev (25+4)", "agent": "trustedleads-dev"},
+    "brain": {"sessions": 150, "note": "brain-api (92) + brain-assistant (43) + brain-stack/llm/quartz/workspaces; the AI control plane itself", "agent": "prompt-engineer / server-infra"},
+    "datryxen": {"sessions": 79, "note": "android (41) + web (38)", "agent": "datryxen-dev / datryxen-android"},
+    "leadgen_data": {"sessions": 80, "note": "sdr-saas (36), contact-search (22+22), AI_SDR_APP (16), enrichment", "agent": "b2b-leadgen / scraper-brain"},
+    "invoice": {"sessions": 19, "agent": "invoice-dev"},
+    "fleet_ops": {"sessions": 231, "note": "root (127) + rentamac (104); SSH/infra/host ops on the control plane and remote boxes", "agent": "server-infra / coolify-operator"}
+  },
+
+  "tool_profile": {
+    "dominant": {"Bash": 22645, "Read": 7688, "Edit": 5203, "Write": 2062},
+    "autonomy_stack": {"TaskCreate+Update": 1115, "Agent": 271, "ToolSearch": 365, "ScheduleWakeup": 222, "Workflow": 60},
+    "reads_per_edit_ratio": 1.48,
+    "interpretation": "Operator/dev work, not chat. He runs the agent in bypassPermissions/auto modes (203 of 277 mode-stamped turns) and leans on scheduling + workflows + sub-agents for set-and-forget autonomy. Heavy Bash = real execution expected, not advice."
+  },
+
+  "decision_style": {
+    "directive_density": "Very high — short asks, large expected output.",
+    "autonomy_tolerance": "High on execution, LOW on scope drift. Run long, but never widen the scope he set.",
+    "verification_demand": "Absolute. Proof or 'not verified'. He has been burned by false-done ~35% of sessions.",
+    "patience_for_options": "Zero. Menus and bargaining trigger anger.",
+    "anger_base_rate": {"sessions": 22, "pct": 1.6, "note": "Rare but sharp; almost always preceded by false-done, overstepping, or time-waste. Romanized Bengali = the ceiling."}
+  },
+
+  "operating_contract": {
+    "do": [
+      "Restate his spec in one line, then build ONLY that.",
+      "Load live state before acting; verify before claiming.",
+      "Run long and autonomously once the target is confirmed correct.",
+      "Lead with the result; <=3 sentences; silence between tool calls.",
+      "On 'remove/simplify': delete scope, smallest step, no new layer.",
+      "Quote literal proof (row counts, real output) when reporting done."
+    ],
+    "dont": [
+      "Don't say done without running the real path this session.",
+      "Don't add anything he didn't name.",
+      "Don't present option menus or bargain — pick and execute.",
+      "Don't trust stale memory/brain over live state.",
+      "Don't repeat a mistake he already corrected.",
+      "Don't redirect/'roll' him — confirm and proceed.",
+      "Don't explain or defend when he's angry — kill, admit, fix."
+    ]
+  }
+}

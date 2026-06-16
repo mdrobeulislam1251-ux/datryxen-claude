@@ -4,3 +4,5 @@
 node_modules/
 *.log
 .DS_Store
+model/conversations.jsonl
+model/correction_pairs.jsonl

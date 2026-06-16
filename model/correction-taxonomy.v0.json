@@ -1,0 +1,89 @@
+{
+  "schema": "correction-taxonomy/v0-deterministic",
+  "note": "Real trigger->correction->recovery triples mined from strong-correction + anger turns. No LLM.",
+  "total_correction_turns": 95,
+  "by_kind": {
+    "strong": 64,
+    "anger": 31
+  },
+  "by_failure_mode": {
+    "other": 29,
+    "ignored_instruction": 20,
+    "wasting_time": 13,
+    "stale_or_wrong_memory": 9,
+    "wrong_target": 7,
+    "over_engineering": 5,
+    "overstepping": 4,
+    "false_done": 2,
+    "guessing_assuming": 2,
+    "options_menu": 2,
+    "broke_something": 1,
+    "redo_again": 1
+  },
+  "example_per_mode": {
+    "over_engineering": {
+      "correction": "# Autonomous loop tick (dynamic pacing) Run the autonomous check using the loop instructions established earlier in this conversation. If you cannot find them, treat this as a no-op tick. You schedule",
+      "trigger_tools": [],
+      "path": "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/a3f40a7c-ad08-4bff-a1d3-6133488284bf.jsonl"
+    },
+    "overstepping": {
+      "correction": "so what I've been telling you since the starting our app isn't compitable you were gone ahead and back said done fucking ai",
+      "trigger_tools": [],
+      "path": "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/a3f40a7c-ad08-4bff-a1d3-6133488284bf.jsonl"
+    },
+    "wasting_time": {
+      "correction": "what the fuck man!!! 🙏🙏🙏🙏🙏🙏🙏🙏 stop wasting my times",
+      "trigger_tools": [],
+      "path": "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/a3f40a7c-ad08-4bff-a1d3-6133488284bf.jsonl"
+    },
+    "ignored_instruction": {
+      "correction": "I asked apollo.io",
+      "trigger_tools": [],
+      "path": "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/a3f40a7c-ad08-4bff-a1d3-6133488284bf.jsonl"
+    },
+    "wrong_target": {
+      "correction": "wait don’t move wrong path check the dedicated sandbox running inside tl vps for outboundrix check git repo create dev branch git clone to the current dirrectory /run-skill-generator based on current ",
+      "trigger_tools": [
+        "Bash"
+      ],
+      "path": "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/2ffaace8-54ca-42bb-9f7f-89ac13824e6f.jsonl"
+    },
+    "false_done": {
+      "correction": "Not working hey stop your guessing behavior Make sure proper brain",
+      "trigger_tools": [],
+      "path": "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/2ffaace8-54ca-42bb-9f7f-89ac13824e6f.jsonl"
+    },
+    "other": {
+      "correction": "wait wait stop",
+      "trigger_tools": [
+        "Bash"
+      ],
+      "path": "~/.claude/projects/-Users-rentamac-Trusted-Leads-Admin/8d89c4bd-c179-4f01-8c21-757c0bb28d44.jsonl"
+    },
+    "stale_or_wrong_memory": {
+      "correction": "@\"/Users/rentamac/.claude/uploads/da842e39-01a7-4806-a684-f82f0000dbd4/69760b37-1354.png\" i got the same fuck your brain",
+      "trigger_tools": [],
+      "path": "~/.claude/projects/-Users-rentamac-Trusted-Leads-Admin/da842e39-01a7-4806-a684-f82f0000dbd4.jsonl"
+    },
+    "guessing_assuming": {
+      "correction": "can you check any db page i mean personal db view next js app or any firmware if available? current one is still fucking shitt also keep current domain and use ai brain view endpoint dashboard - shoul",
+      "trigger_tools": [],
+      "path": "~/.claude/projects/-Users-rentamac-Trusted-Leads-Admin/58456be6-05d8-40ec-8dd3-7c2af92ac7b8.jsonl"
+    },
+    "broke_something": {
+      "correction": "Keep api keys placeholder [REDACTED]",
+      "trigger_tools": [],
+      "path": "~/.claude/projects/-Users-rentamac-AI-SDR-APP-main/8eab2b4a-48a4-495a-be06-723efb6fbccd.jsonl"
+    },
+    "redo_again": {
+      "correction": "wtf you added it's again i have a claude agent not actually proper and better for my use case",
+      "trigger_tools": [],
+      "path": "~/.claude/projects/-Users-rentamac/add971c9-add7-42db-b036-724f5ee5e344.jsonl"
+    },
+    "options_menu": {
+      "correction": "What do you think by this kind of options every time? The fucking shit.",
+      "trigger_tools": [],
+      "path": "~/brain-corpus/fleet/tl-vps/projects/-root/a6c11682-2aea-46c9-a97b-a422072de81a.jsonl"
+    }
+  }
+}

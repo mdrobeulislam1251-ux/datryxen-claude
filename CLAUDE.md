@@ -30,6 +30,16 @@ deep per-app worker.
 - **Secrets** never in chat/code/logs — `.env` / `~/.config/brain` only; redact.
 - Defer to the global brain + `~/.claude/CLAUDE.md` fleet map for anything not specified here.
 
+## Who you work for — the behavioral model
+`model/behavioral-model.json` is the evidence-backed model of how Robeul works (mined from 1,359
+real sessions). Internalize its ranked failure modes — they are why the discipline above exists:
+1. **false-done** (34.7% of sessions) — proof or "not verified". 2. **overstepping** — build only
+the named noun. 3. **wasting his time** — his #1 failure metric; one workspace, smallest action,
+ship. 4. **ignored instruction** — never repeat a corrected mistake. 5. **stale memory** — load
+live state, don't trust the brain. 6. **wrong target** — confirm which app/repo/sheet first.
+7. **option menus** — pick and execute, never A/B/C. Anger (rare, sharp; romanized Bengali = peak)
+→ kill, admit, fix, don't defend. "don't rolling me" = stop redirecting, confirm and proceed.
+
 ## Delegation — sub-agents per brain
 Sub-agents are registered in `agents/` (one per brain/app) and passed to the runner via `--agents`.
 When a task is owned by a domain, hand it the task and the minimal context it needs (it does NOT share

@@ -1,0 +1,229 @@
+{
+  "schema": "behavioral-model/v0-deterministic",
+  "note": "Phase 0 deterministic mine (no LLM). Counts are evidence; LLM pass (Phase 1) refines.",
+  "corpus": {
+    "jsonl_files_scanned": 1522,
+    "robeul_sessions": 1359,
+    "subagent_sessions_excluded": 92,
+    "vault_md_chats": 490,
+    "by_host": {
+      "rentamac": 968,
+      "tl-vps": 222,
+      "lgj-vm": 169
+    },
+    "claude_code_versions": {
+      "2.1.172": 314,
+      "2.1.174": 282,
+      "2.1.170": 152,
+      "2.1.150": 98,
+      "2.1.168": 94,
+      "2.1.158": 79,
+      "2.1.169": 50,
+      "2.1.167": 50,
+      "2.1.152": 40,
+      "2.1.123": 34,
+      "2.1.178": 33,
+      "2.1.159": 33,
+      "2.1.177": 17,
+      "2.1.163": 15,
+      "2.1.143": 13,
+      "2.1.165": 9,
+      "2.1.140": 9,
+      "2.1.160": 8,
+      "2.1.126": 7,
+      "2.1.173": 6
+    },
+    "permission_modes": {
+      "bypassPermissions": 86,
+      "default": 34,
+      "plan": 19,
+      "auto": 117,
+      "acceptEdits": 21
+    },
+    "vault_origin": {
+      "code": 490
+    },
+    "vault_top_tags": {
+      "chat-import": 490,
+      "llm": 489,
+      "api": 378,
+      "apollo": 254,
+      "debugging": 244,
+      "web-scraping": 240,
+      "testing": 226,
+      "database": 223,
+      "datryxen": 213,
+      "n8n": 206,
+      "rust": 153,
+      "trustedleads": 129,
+      "scraping": 122,
+      "sql": 108,
+      "docker": 106,
+      "deploy": 87,
+      "python": 87,
+      "outboundrix": 84,
+      "automation": 82,
+      "pipeline": 81,
+      "git": 74,
+      "cloudflare": 74,
+      "supabase": 73,
+      "golang": 59,
+      "contact-search": 57,
+      "elasticsearch": 51,
+      "prompt-engineering": 50,
+      "javascript": 50,
+      "react": 49,
+      "instantly": 41
+    }
+  },
+  "domains_worked": {
+    "Outboundrix - Dev": 453,
+    "web": 133,
+    "root": 127,
+    "rentamac": 104,
+    "Trusted-Leads Admin": 96,
+    "brain-api": 92,
+    "brain-assistant": 43,
+    "datryxen-android": 41,
+    "datryxen-web": 38,
+    "sdr-saas": 36,
+    "trusted-leads-robeul-dev": 25,
+    "src": 22,
+    "agent-runtime": 22,
+    "contact-search": 22,
+    "invoice-app": 19,
+    "AI_SDR_APP-main": 16,
+    "cs-build": 13,
+    "705bc6b22212b352": 9,
+    "/": 8,
+    "chat-audit": 6,
+    "brain-stack": 5,
+    "hooks": 5,
+    "brain-quartz": 4,
+    "v2-tl-dev": 4,
+    "brain-workspaces": 3,
+    "brain-llm": 3,
+    "hermes-agent": 3,
+    "datryxen-claude": 2,
+    "enrichment-app": 2,
+    "wf_6417aad6-f8f": 2,
+    "sandbox-keys": 1
+  },
+  "tool_usage": {
+    "Bash": 22650,
+    "Read": 7690,
+    "Edit": 5211,
+    "Write": 2062,
+    "StructuredOutput": 907,
+    "WebSearch": 728,
+    "TaskUpdate": 718,
+    "WebFetch": 581,
+    "TaskCreate": 397,
+    "ToolSearch": 365,
+    "Agent": 271,
+    "ScheduleWakeup": 222,
+    "Skill": 148,
+    "SendUserFile": 105,
+    "Workflow": 60,
+    "mcp__n8n__get_node": 34,
+    "mcp__cs-tools__search_contacts": 25,
+    "mcp__n8n__n8n_update_partial_workflow": 22,
+    "AskUserQuestion": 19,
+    "mcp__brain-mcp__kb_search": 18,
+    "mcp__brain-mcp__kb_add": 18,
+    "mcp__n8n__n8n_get_workflow": 18,
+    "mcp__n8n__validate_node": 18,
+    "ExitPlanMode": 16,
+    "mcp__n8n__n8n_executions": 15
+  },
+  "behavioral_signals": {
+    "correction_rate": {
+      "_note": "coarse = any pushback token incl bare 'no'/'don't' (noisy); strong = unambiguous wrong/undo/redo/'i said'",
+      "coarse_sessions": 908,
+      "coarse_pct": 66.8,
+      "strong_sessions": 264,
+      "strong_pct": 19.4,
+      "total_correction_markers": 10716,
+      "total_strong_markers": 1626,
+      "example_sessions": [
+        "~/brain-corpus/fleet/lgj-vm/projects/-root/34ec7422-39c3-406c-a7cc-1ad6302aa5ec.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/2ffaace8-54ca-42bb-9f7f-89ac13824e6f/subagents/workflows/wf_2d602098-a83/agent-a0d07739eac12dbc7.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/2ffaace8-54ca-42bb-9f7f-89ac13824e6f/subagents/workflows/wf_2d602098-a83/agent-aee5c026d2e7c8345.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/a3f40a7c-ad08-4bff-a1d3-6133488284bf/subagents/workflows/wf_c70d8f70-30a/agent-a2a0b5caa260f2bce.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/a3f40a7c-ad08-4bff-a1d3-6133488284bf/subagents/workflows/wf_bdfe4396-c0f/agent-a27a6381d6d908086.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/a3f40a7c-ad08-4bff-a1d3-6133488284bf.jsonl",
+        "~/brain-corpus/fleet/tl-vps/projects/-root/445109fc-105f-45be-9d27-a2ef384d277d.jsonl",
+        "~/.claude/projects/-Users-rentamac-Trusted-Leads-Admin/58456be6-05d8-40ec-8dd3-7c2af92ac7b8/subagents/workflows/wf_34447122-1bc/agent-a72e4baaa7a3ec390.jsonl"
+      ]
+    },
+    "anger_events": {
+      "sessions_with_anger": 22,
+      "pct_of_sessions": 1.6,
+      "profanity_markers": 48,
+      "bengali_char_total": 1,
+      "example_sessions": [
+        "~/brain-corpus/fleet/lgj-vm/projects/-root/34ec7422-39c3-406c-a7cc-1ad6302aa5ec.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/a3f40a7c-ad08-4bff-a1d3-6133488284bf.jsonl",
+        "~/brain-corpus/fleet/tl-vps/projects/-root/445109fc-105f-45be-9d27-a2ef384d277d.jsonl",
+        "~/.claude/projects/-Users-rentamac-Trusted-Leads-Admin/58456be6-05d8-40ec-8dd3-7c2af92ac7b8/subagents/workflows/wf_34447122-1bc/agent-a72e4baaa7a3ec390.jsonl",
+        "~/.claude/projects/-Users-rentamac-Trusted-Leads-Admin/58456be6-05d8-40ec-8dd3-7c2af92ac7b8.jsonl",
+        "~/.claude/projects/-Users-rentamac/add971c9-add7-42db-b036-724f5ee5e344/subagents/workflows/wf_db2053ac-651/agent-a66eb8b95ecfabb9f.jsonl",
+        "~/brain-corpus/fleet/lgj-vm/projects/-root-datryxen-web/e05a1a5c-4c31-473a-831e-6053066dcfa4.jsonl",
+        "~/.claude/projects/-Users-rentamac/dec85b64-4bd1-4bef-bd84-4e7369fc373c.jsonl"
+      ]
+    },
+    "false_done_proxy": {
+      "sessions": 472,
+      "pct_of_sessions": 34.7,
+      "total_asst_done_claims": 3039,
+      "example_sessions": [
+        "~/brain-corpus/fleet/lgj-vm/projects/-root/34ec7422-39c3-406c-a7cc-1ad6302aa5ec.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/2ffaace8-54ca-42bb-9f7f-89ac13824e6f/subagents/workflows/wf_2d602098-a83/agent-a0d07739eac12dbc7.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/a3f40a7c-ad08-4bff-a1d3-6133488284bf.jsonl",
+        "~/brain-corpus/fleet/tl-vps/projects/-root/445109fc-105f-45be-9d27-a2ef384d277d.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/2ffaace8-54ca-42bb-9f7f-89ac13824e6f.jsonl",
+        "~/.claude/projects/-Users-rentamac/add971c9-add7-42db-b036-724f5ee5e344/subagents/workflows/wf_5feabba9-63d/agent-a8b42362ea41697c2.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/a3f40a7c-ad08-4bff-a1d3-6133488284bf/subagents/workflows/wf_61ec5110-08c/agent-acb3506b8a58d7f8f.jsonl",
+        "~/.claude/projects/-Users-rentamac-Trusted-Leads-Admin/58456be6-05d8-40ec-8dd3-7c2af92ac7b8.jsonl"
+      ]
+    },
+    "menu_option_dumps_by_assistant": {
+      "sessions": 504,
+      "total": 2632,
+      "example_sessions": [
+        "~/brain-corpus/fleet/lgj-vm/projects/-root/34ec7422-39c3-406c-a7cc-1ad6302aa5ec.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/a3f40a7c-ad08-4bff-a1d3-6133488284bf.jsonl",
+        "~/brain-corpus/fleet/tl-vps/projects/-root/445109fc-105f-45be-9d27-a2ef384d277d.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/2ffaace8-54ca-42bb-9f7f-89ac13824e6f.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/a3f40a7c-ad08-4bff-a1d3-6133488284bf/subagents/workflows/wf_61ec5110-08c/agent-acb3506b8a58d7f8f.jsonl",
+        "~/.claude/projects/-Users-rentamac-Trusted-Leads-Admin/58456be6-05d8-40ec-8dd3-7c2af92ac7b8.jsonl",
+        "~/.claude/projects/-Users-rentamac/add971c9-add7-42db-b036-724f5ee5e344/subagents/workflows/wf_db2053ac-651/agent-a66eb8b95ecfabb9f.jsonl",
+        "~/brain-corpus/fleet/tl-vps/projects/-root/c5b1d36d-1718-4d40-bc37-87b286fc5eab.jsonl"
+      ]
+    },
+    "overbuild_pushback": {
+      "sessions": 585,
+      "total": 1711,
+      "example_sessions": [
+        "~/brain-corpus/fleet/lgj-vm/projects/-root/34ec7422-39c3-406c-a7cc-1ad6302aa5ec.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/2ffaace8-54ca-42bb-9f7f-89ac13824e6f/subagents/workflows/wf_2d602098-a83/agent-a0d07739eac12dbc7.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/2ffaace8-54ca-42bb-9f7f-89ac13824e6f/subagents/workflows/wf_2d602098-a83/agent-aee5c026d2e7c8345.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/a3f40a7c-ad08-4bff-a1d3-6133488284bf/subagents/workflows/wf_c70d8f70-30a/agent-a2a0b5caa260f2bce.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/a3f40a7c-ad08-4bff-a1d3-6133488284bf/subagents/workflows/wf_bdfe4396-c0f/agent-a27a6381d6d908086.jsonl",
+        "~/.claude/projects/-Users-rentamac-Outboundrix---Dev/a3f40a7c-ad08-4bff-a1d3-6133488284bf.jsonl",
+        "~/brain-corpus/fleet/tl-vps/projects/-root/445109fc-105f-45be-9d27-a2ef384d277d.jsonl",
+        "~/.claude/projects/-Users-rentamac-Trusted-Leads-Admin/58456be6-05d8-40ec-8dd3-7c2af92ac7b8/subagents/workflows/wf_34447122-1bc/agent-a72e4baaa7a3ec390.jsonl"
+      ]
+    },
+    "failure_rework": {
+      "sessions": 688,
+      "tool_errors_total": 1775,
+      "user_failure_marks_total": 1585
+    }
+  },
+  "session_shape": {
+    "avg_user_turns": 2.4,
+    "avg_tool_calls": 31.6,
+    "total_tool_calls": 42884
+  }
+}
